@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malay Food</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/malay.css">
+    <script>
+
+        function askUser(id) {
+
+            if(id=='Unavailable'){
+                alert('Sorry! New malay food is unavailable! Thank You for your understanding!')
+            }else{
+                // Ask the user for confirmation
+                const userResponse = confirm("Do you want to go to the recipe?");
+
+                if (userResponse) {
+                    // If the user clicks "OK", redirect to recipe.html
+                    window.location.href = "recipe.html";
+                }else {
+                    // If the user clicks "Cancel", scroll to a specific section on the same page
+                    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+                }
+            }
+        }
+    </script>
+    <style>
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background-color: #f5f5f5;
+            background-image: url('https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/green.jpg');
+            background-size:100%;
+            background-position: center;
+            background-attachment: scroll;
+            background-repeat:repeat-y;
+        }
+        .row{
+            flex-direction: row;
+        }
+        .col{
+            flex-direction: column;
+            width:33%;
+            flex: 1;
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .smallimg2:hover {
+            width: 500px;
+            height: 500px;
+          }
+        .smallimg2{
+            position: relative;
+            margin-right: 70%;
+            margin-bottom: 1%;
+            overflow: hidden;
+            display: flex;
+            margin: 3.5% 3.5%;
+            width: 62%;
+            height: 100%;
+            left: 30%;
+            top:50%;
+            flex-direction: column;
+            transition: width 2s, height 2s;
+            z-index: 98;
+
+
+        }
+
+        .smallimg:hover {
+            width: 500px;
+            height: 500px;
+            transform: rotate(360deg);
+          }
+        .smallimg{
+            position: relative;
+            margin-right: 70%;
+            margin-bottom: 1%;
+            overflow: hidden;
+            display: flex;
+            margin: 3.5% 3.5%;
+            width: 62%;
+            height: 100%;
+            left: 30%;
+            top:50%;
+            flex-direction: column;
+            transition: width 2s, height 2s, transform 2s;
+            z-index: 98;
+        }
+        .topb button{
+            display: block;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+            height: 50px;
+            width: 60px;
+        }
+        .topb:hover button{
+            background-color: rgb(131, 0, 0);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 80%;
+            margin-top: 5%;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-bottom: 10%;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 60%;
+            position: relative;
+            left: 37%;
+            overflow: hidden;
+            flex: 2;
+            height: auto;
+
+        }
+        .desc{
+            position: relative;
+            border-radius: 15px;
+            margin-right: 5%;
+            margin-left: 5%;
+            margin-bottom: 5%;
+            overflow: hidden;
+            display: flex;
+            flex: 1;
+            flex-wrap: wrap;
+            gap: 5%;
+            height:auto;
+
+        }
+        .desc img{
+            margin: 5% 5%;
+            width: 90%;
+            height: 50% auto;
+        }
+        .desc p{
+            font-size: 3vw;
+            line-height: 2;
+            height: fit-content;
+        }
+        .desc-item {
+            width: 100%;
+            background-color: #ffffff7a;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            height:250px;
+        }
+        .main-description {
+            position: relative; /* Enables positioning of the text on top of the image */
+            flex: 2;
+            background-color: #f1f1f1;
+            border-radius: 15px;
+            margin-right: 10%;
+            overflow: hidden;
+        }
+        .main-description img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .main-text {
+            position: absolute; /* Places the text on top of the image */
+            top: 50%; /* Center the text vertically */
+            left: 50%; /* Center the text horizontally */
+            transform: translate(-50%, -50%); /* Ensures proper centering */
+            color: white; /* Makes the text readable over the image */
+            text-align: center;
+            padding: 10%;
+            background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a semi-transparent background to the text */
+            border-radius: 10px;
+        }
+        .main-text2 {
+            color: azure;
+            text-decoration: none;
+            text-align: center;
+            padding: 5px;
+            background-color: rgba(0, 64, 0, 0.5); /* Optional: Adds a semi-transparent background to the text */
+            border-radius: 10px;
+            width: 100%;
+            font-size: 2vw;
+        }
+        .main-text2:hover{
+            background-color: rgba(1, 45, 1, 0.5); /* Optional: Adds a semi-transparent background to the text */
+        }
+        .main-text3 {
+            color: rgb(55, 83, 3); /* Makes the text readable over the image */
+            text-align: center;
+            font-size: 2vw;
+            padding: 0;
+            background-color: rgba(106, 144, 41, 0.47); /* Optional: Adds a semi-transparent background to the text */
+            text-shadow: #2d3748;
+            width: 100%;
+            height:5%;
+            overflow: hidden;
+        }
+        .main-text h1 {
+            font-size: 2.5vw;
+            margin-bottom: 20px;
+        }
+        .main-text p {
+            font-size: 1.2vw;
+            line-height: 1.6;
+        }
+        .learn-more {
+            padding: 5% 10%;
+            font-size: 1vw;
+            background-color: #39482d;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .learn-more:hover {
+            background-color: #242c1a;
+        }
+        a{
+            text-decoration: none;
+        }
+        .sample-cuisine {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .sample-cuisine a{
+            color:white;
+        }
+        .cuisine-item {
+            width: 100%;
+            background-color: #ffffff7a;
+            border-radius: 15px;
+            padding: 5%;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            height:18% auto;
+        }
+        .cuisine-item button{
+            border: none;
+        }
+        .cuisine-item img {
+            width: 100%;
+            border-radius: 15px;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+        .cuisine-item p {
+            margin-top: 5%;
+            font-size: 2vw;
+            color: #2d3748;
+        }
+       .cuisine-item:hover img {
+            transform: scale(1.05);
+            color: #ffffff7a;
+
+        }
+        .cuisine-item:hover {
+            transform: translateY(-5px);
+            background-color: #efeeee7a;
+        }
+    </style>
+
+
+</head>
+<body>
+    <script>alert('Welcome to Malay Food!');</script>
+    <div class="topb">
+        <a href="#top">
+            <button id="myBtn" title="Go to top">Top</button>
+        </a>
+    </div>
+
+    <div class=" main-text3">
+        <p>
+            <h1 id="top" >Malay Cuisine</h1>
+        </p>
+    </div>
+
+    <audio controls autoplay>
+        <source src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/BalikKampung.mp3" type="audio/mp3">
+    </audio>
+    <div class="container">
+        <div class="main-description">
+            <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/d1.jpg" alt="Explore Malay Cuisine">
+            <div class="main-text">
+                <h1>Explore Malay Cuisine</h1>
+                <p>Discover the rich and diverse flavors of Malay cuisine, a unique blend of spices, herbs, and ingredients that create unforgettable dishes.</p>
+                <a href="#Intro">
+                    <p class="learn-more">Introduction</p>
+                </a>
+                <a href="#Char">
+                    <p class="learn-more">Characteristic</p>
+                </a>
+                <a href="#Taste">
+                    <p class="learn-more">Taste</p>
+                </a>
+            </div>
+            
+        </div>
+ 
+        <div class="sample-cuisine">
+            
+            <div class="main-text2">
+                <a href="#Dishes">
+                    <p>Recommandation Below</p>
+                </a>
+            </div>
+            
+         
+            <div class="cuisine-item">              
+                    <button type="button" onclick="askUser('NasiLemak')">
+                        <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/nasi_lemak.jpg" alt="Nasi Lemak">                
+                    </button>
+                    <p>Nasi Lemak</p>
+                 
+            </div>
+            <div class="cuisine-item">
+                <button type="button" onclick="askUser('MeeGoreng')">
+                    <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/mee_goreng.jpg" alt="Mee Goreng">
+                </button>
+                <p>Mee Goreng</p>
+            </div>
+            <div class="cuisine-item">
+                <button type="button" onclick="askUser('MeeGoreng')">
+                    <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/satay.jpeg" alt="Satay">
+                </button>
+                <p>Satay</p>     
+            </div>
+
+            <div class="cuisine-item">
+                <button type="button" onclick="askUser('Unavailable')">
+                    <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/unavailable.jpeg" alt="Rendang">
+                </button>
+                <p>Coming Soon..</p>
+            </div>
+        </div>       
+    </div>
+
+    <div class="main-text3">
+        <p>
+            <h1 id="Intro">Introduction</h1>
+        </p>
+    </div>
+
+        <div class="content">
+            <div class="desc">
+                <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/dd1.png">
+                <p>
+                    Malay cuisine is a rich and diverse culinary tradition that reflects
+                    the cultural and historical influences of Malaysia's multi-ethnic society.
+                    Rooted in the Malay Archipelago, the cuisine is known for its use of aromatic spices,
+                    coconut milk, and fresh herbs, creating dishes that are both flavorful and fragrant.
+                </p>
+            </div>
+        </div>
+
+
+    <div class=" main-text3">
+        <p>
+            <h1 id="Char">Characteristics</h1>
+        </p>
+    </div>   
+    <div class="content">
+        <div class="desc">
+           <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/dd2.png">
+                <p>
+                    Malay cuisine is characterized by its bold and spicy flavors, often achieved through the
+                    use of ingredients like lemongrass, turmeric, ginger, and chili peppers. The food is
+                    usually prepared with a balance of salty, sweet, sour, and spicy tastes, making each
+                    dish a complex and delightful experience.
+                </p>
+        </div>
+    </div>
+  
+
+    <div class=" main-text3">
+        <p>
+            <h1 id="Taste">Taste</h1>
+        </p>
+    </div>
+    <div class="content">
+        <div class="desc">
+            <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/dd3.jpg">
+            <p>
+                The taste profile of Malay dishes often revolves around the harmonious blending of sweet,
+                 sour, salty, and spicy elements. Coconut milk is a staple, adding a rich creaminess to
+                  many dishes. The use of spices and herbs is crucial in creating the distinctive taste,
+                   with sambal—a chili-based condiment—often providing a spicy kick.
+            </p>
+        </div>
+    </div>
+
+<!--Food-->
+    <div class=" main-text3">
+        <p>
+            <h1 id="Dishes"> &emsp; &emsp; &emsp;Signature Dishes</h1>
+        </p>
+    </div>
+    <div class="content">
+        <div class="desc">
+            <p>Here is the video that list many Malay foods.</p>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/LJwNeLmO1wU?si=rIIySGmNQ9rTOeXF" 
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+
+        </div>
+    </div>
+
+
+
+    <div class=" main-text3">
+        <p>
+            <h1 id="NasiLemak"> &emsp; &emsp; &emsp;Signature Dishes - Nasi Lemak</h1>
+        </p>
+    </div>
+    <div class="content">
+        <div class="desc">
+            <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/nasi_lemak.jpg">
+            <p>
+                <b>Nasi Lemak</b> is one of the most iconic dishes in Malay cuisine, often considered the
+                 national dish of Malaysia. It consists of fragrant rice cooked in coconut milk, which
+                  gives it a rich, creamy flavor. The rice is usually served with a variety of accompaniments,
+                   including crispy fried anchovies, roasted peanuts, hard-boiled or fried eggs, and slices
+                    of cucumber. The dish is also paired with a spicy sambal—a chili paste that adds a fiery kick.
+            </p>
+        </div>
+    </div>
+
+    <div class=" main-text3">
+        <p>
+            <h1 id="MeeGoreng"> &emsp; &emsp; &emsp;Signature Dishes - Mee Goreng</h1>
+        </p>
+    </div>
+    <div class="content">
+        <div class="desc">
+            <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/mee_goreng.jpg">
+            <p>
+                <b>Mee Goreng</b> is a popular Malaysian dish made from stir-fried yellow egg noodles, typically combined with
+                 shrimp, chicken, or tofu, along with vegetables like cabbage and bean sprouts. It's flavored with a savory mix
+                  of garlic, soy sauce, and chili paste, often with a hint of sweetness from kecap manis. The dish is known for
+                   its rich, balanced taste—both sweet and spicy—and is commonly garnished with lime, fried shallots, and sometimes
+                    a fried egg. Mee Goreng is a beloved comfort food, enjoyed by Malaysians of all backgrounds.
+
+            </p>
+        </div>
+    </div>
+
+    <div class=" main-text3">
+        <p>
+            <h1 id="Satay"> &emsp; &emsp;Signature Dishes - Satay</h1>
+        </p>
+    </div>
+    <div class="content">
+        <div class="desc">
+            <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/satay.jpeg">
+            <p>
+                <b>Satay</b> is one of the most iconic dishes in Malay cuisine, known for its flavorful and aromatic profile.
+                 It consists of marinated meat, typically chicken, beef, or lamb, skewered on bamboo sticks and grilled over
+                  an open flame. The marinade usually includes a blend of spices, such as turmeric, coriander, cumin, and
+                   lemongrass, which gives the meat a rich, savory taste with a hint of sweetness. The skewers are often
+                    served with a side of spicy peanut sauce, slices of cucumber, and rice cakes known as "ketupat."
+            </p>
+            <p>
+                The combination of the smoky, charred meat and the creamy, spicy peanut sauce creates a balanced and irresistible
+                 flavor that represents the essence of Malay cooking. Satay is a popular street food in Malaysia and is often enjoyed
+                  as a snack or as part of a larger meal during festive occasions and gatherings.
+
+            </p>
+            
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="smallimg2">
+            <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/intro1.jpg">
+        </div>
+        <div class="smallimg2">
+            <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/intro2.jpg">
+        </div>
+        <div class="smallimg2">
+            <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/intro3.jpeg">
+        </div>
+        <div class="smallimg">
+            <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/intro4.jpg">
+        </div>
+        <div class="smallimg">
+            <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/intro5.jpeg">
+        </div>
+        <div class="smallimg">
+            <img src="https://raw.githubusercontent.com/KazumaShan/y2s1Image/main/intro6.jpeg">
+        </div>
+    </div>
+
+
+
+    
+
+</body>
+</html>
